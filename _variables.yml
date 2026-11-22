@@ -11,3 +11,5 @@ package_max_file_size_gb: 2
 package_max_pkg_size_gb: 10
 large_reports_url: "https://www.dropbox.com/scl/fo/i50sc2awg2hkxdctpe3ty/AEEJKvb2qctxybLYLfVLl5U?rlkey=e63xgydj5omin76hx0p3vpy08&dl=0"
 paper_source_subfolder: "paper-appendices"
+paper_source_round: 1
+paper_source_dropbox_rel_path: "JPE/Farahzadi-20241111/1"

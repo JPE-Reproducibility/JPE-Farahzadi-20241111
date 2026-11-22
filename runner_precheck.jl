@@ -145,10 +145,29 @@ end
 
 if !paper_downloaded_ok
     try
-        paper_source_path = joinpath(ENV["JPE_DBOX_APPS"], vars["dropbox_rel_path"], vars["paper_source_subfolder"])
+        paper_source_path = joinpath(ENV["JPE_DBOX_APPS"], vars["paper_source_dropbox_rel_path"], vars["paper_source_subfolder"])
         if isdir(paper_source_path)
             isdir(paper_dest_path) && rm(paper_dest_path; recursive=true, force=true)
-            PackageScanner.mycp(paper_source_path, paper_dest_path; recursive=true, force=true)
+            mkpath(paper_dest_path)
+            # Unzip any nested archive found directly in the source
+            # folder too (e.g. "Shadi Farahzadi - Paper TEX file.zip")
+            # -- real-world paper-appendices/ folders often have the
+            # actual .tex locked inside one of these rather than
+            # sitting at the top level. Mirrors the remote-download
+            # branch below.
+            for f in readdir(paper_source_path; join=true)
+                if isfile(f) && endswith(lowercase(f), ".zip")
+                    @info "Unzipping nested paper-source archive $f..."
+                    try
+                        run(`unzip -oq $f -d $paper_dest_path`)
+                    catch e
+                        @warn "unzip of $f exited non-zero" exception=e
+                    end
+                else
+                    PackageScanner.mycp(f, joinpath(paper_dest_path, basename(f)); recursive=true, force=true)
+                end
+            end
+            rm_git(paper_dest_path)
             @info "✓ Paper source copied from local Dropbox"
         else
             @warn "Paper source not found at $paper_source_path — skipping (no paper available for Stage C)"
@@ -168,9 +187,32 @@ elseif isfile("paper.zip")
 
     isdir(paper_dest_path) && rm(paper_dest_path; recursive=true, force=true)
     mkpath(paper_dest_path)
-    for f in readdir(tmp_dir; join=true)
-        cp(f, joinpath(paper_dest_path, basename(f)); force=true)
+
+    # Find all nested ZIPs inside the extracted Dropbox folder (e.g.
+    # the author's "Paper + figs + bib.zip", sometimes alongside a
+    # separate journal-office upload) and unzip each of those too --
+    # mirrors the replication-package fetch above. Real-world
+    # paper-appendices/ folders often have the actual .tex locked
+    # inside one of these rather than sitting at the top level.
+    nested_zips = filter(readdir(tmp_dir; join=true)) do f
+        isfile(f) && endswith(lowercase(f), ".zip")
     end
+
+    for f in readdir(tmp_dir; join=true)
+        endswith(lowercase(f), ".zip") || cp(f, joinpath(paper_dest_path, basename(f)); force=true)
+    end
+    if !isempty(nested_zips)
+        @info "Found $(length(nested_zips)) nested paper-source ZIP(s) to extract" nested_zips
+        for z in nested_zips
+            @info "Unzipping $z..."
+            try
+                run(`unzip -oq $z -d $paper_dest_path`)
+            catch e
+                @warn "unzip of $z exited non-zero" exception=e
+            end
+        end
+    end
+
     rm_git(paper_dest_path)
     rm(tmp_dir; recursive=true, force=true)
     @info "✓ Paper source unzip complete"
@@ -214,6 +256,60 @@ Pro account, distinct from the user's personal one -- see
 called from a session that isn't itself a nested claude-jpe invocation).
 """
 claude_jpe_config_dir() = get(ENV, "CLAUDE_CONFIG_DIR", joinpath(homedir(), ".claude-jpe"))
+
+"""
+    JOURNAL_OFFICE_UPLOADER_MARKERS
+
+Filename substrings that identify a file as uploaded by JPE staff rather
+than the author (e.g. the editorial assistant forwarding a copy of the
+accepted manuscript into `paper-appendices/`, filename-prefixed with their
+own name). These are a less-authoritative, potentially-stale fallback --
+the author's own upload should always win when both exist. Add more names
+here as staff turn over; there's no structural way to distinguish uploader
+identity from the filename alone, so this is necessarily manually maintained.
+"""
+const JOURNAL_OFFICE_UPLOADER_MARKERS = ["Connie -"]
+
+"""
+    is_journal_office_upload(path::String) -> Bool
+
+True iff `path`'s filename matches one of `JOURNAL_OFFICE_UPLOADER_MARKERS`.
+"""
+is_journal_office_upload(path::String) = any(m -> occursin(m, basename(path)), JOURNAL_OFFICE_UPLOADER_MARKERS)
+
+"""
+    find_paper_pdf(dir::String) -> Union{String,Nothing}
+
+Stage C PDF fallback (JPE-Reproducibility/PackageScanner.jl, `extract_pdf_text`):
+find a compiled PDF of the paper under `dir`, for use when
+`PackageScanner.extract_latex_text` found no `.tex` root at all. Prefers a
+file literally named `paper.pdf` (case-insensitive) if present; otherwise
+prefers an author-uploaded PDF over one matching
+`JOURNAL_OFFICE_UPLOADER_MARKERS` (the author's own copy is more likely to
+be up to date than a journal-office-forwarded one), then falls back to the
+first PDF found (sorted, for determinism across runs). Returns `nothing`
+if no PDF exists anywhere under `dir`.
+
+Pure filesystem walking, no PackageScanner/JULIA_RUNNER_ENV dependency --
+unlike `extract_latex_text`/`extract_pdf_text` themselves, this can run
+directly in either JPE.jl or the generated runner script.
+"""
+function find_paper_pdf(dir::String)
+    pdfs = String[]
+    for (root, _, files) in walkdir(dir)
+        for f in files
+            endswith(lowercase(f), ".pdf") && push!(pdfs, joinpath(root, f))
+        end
+    end
+    isempty(pdfs) && return nothing
+    sort!(pdfs)
+
+    named = findfirst(p -> lowercase(basename(p)) == "paper.pdf", pdfs)
+    isnothing(named) || return pdfs[named]
+
+    author_pdfs = filter(!is_journal_office_upload, pdfs)
+    return isempty(author_pdfs) ? first(pdfs) : first(author_pdfs)
+end
 
 """
     CLAIMS_JSON_SCHEMA
@@ -745,36 +841,59 @@ if true
                 println(rio, "")
                 println(rio, "Resolve manually from a JPE.jl session with `extract_paper_claims(paperID; main_files=[...])`, then re-run preprocess.")
             end
-        elseif isempty(tex_result.roots)
-            @warn "no .tex source found under paper-source/ — skipping Stage C claims extraction"
-            open(claims_report_path, "w") do rio
-                println(rio, "# Stage C: Claims Extraction")
-                println(rio, "")
-                println(rio, "**Skipped**: no `.tex` source found under `paper-source/`. PDF fallback is not implemented.")
-            end
         else
-            flattened_path = joinpath(paper_dest_path, "_flattened.tex")
-            write(flattened_path, tex_result.text)
-            try
-                extraction = run_claude_claims_extraction(flattened_path)
-                open(claims_json_path, "w") do jio
-                    JSON.print(jio, extraction.claims, 2)
-                end
+            # No .tex root at all -> fall back to a PDF under
+            # paper-source/ (find_paper_pdf, spliced in above from
+            # claims_runner_helpers.jl) before giving up entirely.
+            #
+            # paper_source_round (preprocess()'s find_paper_source_round
+            # fallback -- most papers don't resubmit the paper itself on
+            # a revision round) may differ from this round's own
+            # `round`; note that in the report so it's not mysterious
+            # later why an older paper got used.
+            round_note = let psr = get(vars, "paper_source_round", vars["round"])
+                psr == vars["round"] ? "" : ", from round $psr"
+            end
+            source_result, source_note = if !isempty(tex_result.roots)
+                tex_result, "LaTeX source ($(length(tex_result.roots)) root file(s)$round_note)"
+            else
+                pdf_path = find_paper_pdf(paper_dest_path)
+                isnothing(pdf_path) ?
+                    (nothing, nothing) :
+                    (PackageScanner.extract_pdf_text(pdf_path), "PDF fallback (`$pdf_path`, no .tex source found$round_note)")
+            end
+
+            if isnothing(source_result)
+                @warn "no .tex or .pdf source found under paper-source/ — skipping Stage C claims extraction"
                 open(claims_report_path, "w") do rio
                     println(rio, "# Stage C: Claims Extraction")
                     println(rio, "")
-                    println(rio, "**Done** ($(Dates.now())). Extraction cost: \$$(extraction.cost_usd)")
+                    println(rio, "**Skipped**: no `.tex` or `.pdf` source found under `paper-source/`.")
                 end
-                @info "✓ Stage C claims extraction complete, cost \$$(extraction.cost_usd)"
-            catch e
-                @warn "Stage C claims extraction failed" exception=e
-                open(claims_report_path, "w") do rio
-                    println(rio, "# Stage C: Claims Extraction")
-                    println(rio, "")
-                    println(rio, "**Failed**: $e")
+            else
+                flattened_path = joinpath(paper_dest_path, "_flattened.tex")
+                write(flattened_path, source_result.text)
+                try
+                    extraction = run_claude_claims_extraction(flattened_path)
+                    open(claims_json_path, "w") do jio
+                        JSON.print(jio, extraction.claims, 2)
+                    end
+                    open(claims_report_path, "w") do rio
+                        println(rio, "# Stage C: Claims Extraction")
+                        println(rio, "")
+                        println(rio, "**Done** ($(Dates.now())), via $source_note. Extraction cost: \$$(extraction.cost_usd)")
+                    end
+                    @info "✓ Stage C claims extraction complete, cost \$$(extraction.cost_usd)"
+                catch e
+                    @warn "Stage C claims extraction failed" exception=e
+                    open(claims_report_path, "w") do rio
+                        println(rio, "# Stage C: Claims Extraction")
+                        println(rio, "")
+                        println(rio, "**Failed**: $e")
+                    end
+                finally
+                    rm(flattened_path, force=true)
                 end
-            finally
-                rm(flattened_path, force=true)
             end
         end
     end
