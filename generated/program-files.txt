@@ -1,0 +1,71 @@
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/run_all.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Data cleaning code/cleaning_census.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/A Appendix Figures & Tables/Code Figure A1.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/A Appendix Figures & Tables/Code Figure A2.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/A Appendix Figures & Tables/Code Figure A3.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/A Appendix Figures & Tables/Code Figure A4.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/A Appendix Figures & Tables/Code Figure A5.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/A Appendix Figures & Tables/Code Figure A6.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/A Appendix Figures & Tables/Code Figure A7.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/A Appendix Figures & Tables/Code Table A1.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/A Appendix Figures & Tables/Code Table A2.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/A Appendix Figures & Tables/Code Table A4.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/I Model Fit/Code Table A6.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/I Model Fit/Table A5 observed.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/J Measurement Error and Robustness of Definition/J2 Alternative Definitions of Marriage Migration/Code Table A7.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/J Measurement Error and Robustness of Definition/J2 Alternative Definitions of Marriage Migration/Code Table A8.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/J Measurement Error and Robustness of Definition/J3 Measurement Error/Code Table A9.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/J Measurement Error and Robustness of Definition/J3 Measurement Error/analysis.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/J Measurement Error and Robustness of Definition/J3 Measurement Error/cleaning.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/K Robustness to Cohabitation/Code Table A11.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/L Heterogeneity/L1 Heterogeneity by Cohort and Period/Code Table A12.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/L Heterogeneity/L1 Heterogeneity by Cohort and Period/Code Table A13.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/L Heterogeneity/L2 Heterogeneity by Nativity Status/Code Figure A14.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/L Heterogeneity/L2 Heterogeneity by Nativity Status/Code Table A14.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/L Heterogeneity/L3 Heterogeneity by Local Market Population/Code Figure A16.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/L Heterogeneity/L3 Heterogeneity by Local Market Population/Code Figure A17.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/L Heterogeneity/L3 Heterogeneity by Local Market Population/Code Table A15.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Paper/2 Data & Reduced-Form Evidence/Code Figure 1.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Paper/2 Data & Reduced-Form Evidence/Code Table 1.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Paper/2 Data & Reduced-Form Evidence/Code Table 2.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Paper/2 Data & Reduced-Form Evidence/Code Table 3.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Paper/5 Results/Code Figure 5.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Paper/5 Results/Code Table 4.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Preparation/Model Engine/By Religion.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Preparation/Reduced Form Sample/Code Prepare Reduced Form Data.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Synthetic Data/Citizenship Survey/Code Create Synthetic Citizenship Survey.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Synthetic Data/DHS India/Code Create Synthetic DHS India.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Synthetic Data/IPUMS/Code Create Synthetic IPUMS.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Synthetic Data/Understanding Society/analysis.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Synthetic Data/Understanding Society/cleaning.do
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Data cleaning code/census_cleaning.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/A Appendix Figures & Tables/Code Table A3.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/F Toy Model/Code Figures A9-A12.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/H Monte-Carlo Simulations/Code Figure A13.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/I Model Fit/Code Table A5.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/J Measurement Error and Robustness of Definition/J2 Alternative Definitions of Marriage Migration/table_a7_migration.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/J Measurement Error and Robustness of Definition/J2 Alternative Definitions of Marriage Migration/table_a8_migration.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/J Measurement Error and Robustness of Definition/J3 Measurement Error/Code Table A10.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/K Robustness to Cohabitation/table_a11_migration.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/L Heterogeneity/L3 Heterogeneity by Local Market Population/figure_a17_migration.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/M Model Extensions/M1 Nested Matching/Code Table A16.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/M Model Extensions/M1 Nested Matching/Code Table A17.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/M Model Extensions/M1 Nested Matching/counterfactual_baseline.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/M Model Extensions/M1 Nested Matching/counterfactual_nested.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/M Model Extensions/M1 Nested Matching/estimation_nested.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/M Model Extensions/M2 Two-Generation Matching/Code Figure A18.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/M Model Extensions/M2 Two-Generation Matching/Code Figure A19.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/M Model Extensions/M2 Two-Generation Matching/two_generation_model.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Online Appendix/M Model Extensions/M3 Two-Generation Matching with Endogeneous Preferences/Code Figure A20.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Paper/5 Results/Code Figure 4.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Paper/5 Results/Code Figure 6.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Paper/6 Policy Analysis/Code Figure 7.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Paper/6 Policy Analysis/Code Figure 8.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Preparation/Data Cleaning/census_cleaning.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Preparation/Data Cleaning/census_comparison_cleaning.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Preparation/Model Engine/counterfactual.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Preparation/Model Engine/matching_equilibrium.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Synthetic Data/generate_artificial_survey_inputs.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Synthetic Data/Census/generate_synthetic_census.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Synthetic Data/Census/generate_synthetic_census_2001.py
+/var/folders/5q/yhcyv3z55wvg6lhgc3h22kk00000gq/T/20241111-1/replication-package/replication package for migration for marriage/Synthetic Data/Understanding Society/generate_synthetic_understanding_society.py

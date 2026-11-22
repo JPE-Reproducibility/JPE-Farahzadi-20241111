@@ -169,3 +169,6 @@ TEMPLATE_files/
 /.quarto/
 
 **/*.quarto_ipynb
+
+# synced from JPEtemplate main (sync_gitignore!)
+paper-source/**
