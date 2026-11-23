@@ -461,8 +461,11 @@ end
 #
 # Reads Stage A (report-data-dependencies.md), Stage B (report-readme-structure.md
 # -- optional, degrades gracefully if absent: JPE-Reproducibility/PackageScanner.jl#17
-# not yet merged at the time this was written), and Stage C (claims.json) outputs
-# from the paper's generated/ folder, and runs a single headless `claude -p` call
+# not yet merged at the time this was written), Stage R (report-readme-review.md --
+# also optional/degrades gracefully, the qualitative LLM README review in
+# readme_review.jl, a DE-triggered manual step like this one, not run automatically),
+# and Stage C (claims.json) outputs from the paper's generated/ folder, and runs a
+# single headless `claude -p` call
 # (same budget discipline as Stage C: --safe-mode, single turn, no agentic Read/Grep
 # loop) to produce a per-claim verdict (Matched/Plausible/Missing) with file-level
 # supporting evidence.
@@ -532,6 +535,13 @@ function crosscheck_prompt(bundle_dir::String)
     - readme_structure.md: README section checklist and data citation coverage (Stage B).
       If this says "(not available)", Stage B wasn't run for this package -- proceed
       without it, don't penalize claims for its absence.
+    - readme_review.md: a qualitative LLM review of the README against a data-editor
+      checklist (Stage R) -- e.g. it may note that a data source's access/license
+      details are missing or vague. If this says "(not available)", Stage R wasn't
+      run for this package -- proceed without it, don't penalize claims for its
+      absence. Use it as supporting context for a claim's plausibility (e.g. a claim
+      about a data source Stage R flagged as undocumented is weaker evidence either
+      way), not as a new source of verdicts on its own.
     - code_manifest.txt / data_manifest.txt: file listings of the replication package.
 
     For each claim in claims.json (each data source, table, and figure), assess
@@ -712,6 +722,43 @@ const DEFAULT_REPORT_MAX_LINES = 20
 const DEFAULT_REPORT_MAX_BYTES = 5 * 1024 * 1024
 
 """
+    url_encode_path(s::AbstractString) -> String
+
+Percent-encode `s` for use as a URL query value, leaving `/` unescaped (it's
+a path separator within the value, not a query delimiter). No external
+dependency (no HTTP.jl/URIs.jl) since this file is spliced verbatim into the
+generated runner script, which doesn't load those.
+"""
+function url_encode_path(s::AbstractString)
+    io = IOBuffer()
+    for b in codeunits(s)
+        if (b >= UInt8('A') && b <= UInt8('Z')) || (b >= UInt8('a') && b <= UInt8('z')) ||
+           (b >= UInt8('0') && b <= UInt8('9')) || b in (UInt8('-'), UInt8('_'), UInt8('.'), UInt8('~'), UInt8('/'))
+            write(io, Char(b))
+        else
+            print(io, "%", uppercase(string(b, base=16, pad=2)))
+        end
+    end
+    return String(take!(io))
+end
+
+"""
+    dbox_folder_file_link(folder_url::AbstractString, relative_path::AbstractString) -> String
+
+One Dropbox shared-folder link (`large_reports_url`, minted once per paper
+round) covers every report routed into that folder -- no need to mint a
+separate per-file shared link (hundreds of API calls/round for a paper with
+many appendices). Dropbox's folder-link web viewer supports a `preview=`
+query param that deep-links straight to a specific file inside the shared
+folder, so this just appends that rather than handing the author the bare
+folder link and making them hunt for the right file.
+"""
+function dbox_folder_file_link(folder_url::AbstractString, relative_path::AbstractString)
+    sep = occursin('?', folder_url) ? "&" : "?"
+    return "$folder_url$(sep)preview=$(url_encode_path(relative_path))"
+end
+
+"""
     is_appendix_file(path) -> Bool
 
 True for any `*-appendix.md` file, PackageScanner.jl's own naming convention
@@ -729,6 +776,10 @@ in place with a short pointer note, when either:
 - it's an appendix file (`is_appendix_file`) -- unconditional, any size; or
 - it's a main report file over `max_lines` lines or `max_bytes` bytes.
 
+The pointer note links to this specific file via `dbox_folder_file_link`,
+not the bare `large_reports_url` -- one shared folder link covers every
+routed file this way, no per-file Dropbox API call needed.
+
 Returns `basename(path)` if routed, else `nothing` (file left untouched).
 """
 function cap_report_file!(path::AbstractString, dest_dir::AbstractString, large_reports_url::AbstractString;
@@ -745,11 +796,12 @@ function cap_report_file!(path::AbstractString, dest_dir::AbstractString, large_
     mkpath(dest_dir)
     cp(path, joinpath(dest_dir, fname); force=true)
     size_mb = round(sz / 1024^2, digits=1)
+    file_link = dbox_folder_file_link(large_reports_url, fname)
 
     if appendix
         open(path, "w") do io
             println(io, "> **Note**: This appendix ($lines lines, $size_mb MB) is not included in the compiled report.")
-            println(io, "> The full version is available here: <$large_reports_url>")
+            println(io, "> The full version is available here: <$file_link>")
         end
     else
         kept = readlines(path)[1:min(max_lines, lines)]
@@ -759,7 +811,7 @@ function cap_report_file!(path::AbstractString, dest_dir::AbstractString, large_
             end
             println(io)
             println(io, "> **Note**: This list contains $lines entries ($size_mb MB) — too large to embed in the report.")
-            println(io, "> The full list is available here: <$large_reports_url>")
+            println(io, "> The full list is available here: <$file_link>")
         end
     end
     return fname
@@ -771,8 +823,9 @@ end
 After routing, any remaining `generated/*.md` file may still contain a
 markdown link literally naming a routed file, e.g.
 `[Appendix](report-pii-appendix.md)` -- dead for the author, since they have
-no repo access. Rewrite every such reference to point at the Dropbox folder
-link instead, so it's a live link in the compiled report.
+no repo access. Rewrite every such reference to a `dbox_folder_file_link`
+deep link into the shared `large_reports_url` folder instead, so it's a live
+link in the compiled report, and lands the author on that specific file.
 """
 function rewrite_appendix_links!(gen_dir::AbstractString, routed_basenames, large_reports_url::AbstractString)
     for f in readdir(gen_dir; join=true)
@@ -780,7 +833,7 @@ function rewrite_appendix_links!(gen_dir::AbstractString, routed_basenames, larg
         content = read(f, String)
         new_content = content
         for fname in routed_basenames
-            new_content = replace(new_content, "($fname)" => "(<$large_reports_url>)")
+            new_content = replace(new_content, "($fname)" => "(<$(dbox_folder_file_link(large_reports_url, fname))>)")
         end
         new_content == content || write(f, new_content)
     end
@@ -811,7 +864,7 @@ function cap_and_route_reports!(gen_dir::AbstractString, dest_dir::AbstractStrin
 end
 
 
-if true
+if false
     claims_dir = joinpath(ENV["GITHUB_WORKSPACE"], "generated")
     mkpath(claims_dir)
     claims_json_path = joinpath(claims_dir, "claims.json")

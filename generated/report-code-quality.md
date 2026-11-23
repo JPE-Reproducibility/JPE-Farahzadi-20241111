@@ -9,4 +9,4 @@
 | Python | 1 | 183 |
 | Stata | 0 | 95 |
 
-*See [Appendix](<https://www.dropbox.com/scl/fo/i50sc2awg2hkxdctpe3ty/AEEJKvb2qctxybLYLfVLl5U?rlkey=e63xgydj5omin76hx0p3vpy08&dl=0>) for the full per-finding listing.*
+*See [Appendix](<https://www.dropbox.com/scl/fo/i50sc2awg2hkxdctpe3ty/AEEJKvb2qctxybLYLfVLl5U?rlkey=e63xgydj5omin76hx0p3vpy08&dl=0&preview=report-code-quality-appendix.md>) for the full per-finding listing.*

@@ -1,6 +1,6 @@
 ### README Structure Audit
 
-_Generated on 2026-11-22T22:37:00.655_
+_Generated on 2026-11-23T21:19:41.054_
 
 #### Required Section Checklist
 
@@ -19,5 +19,5 @@ lead for manual review.
 
 
 
-> **Note**: This list contains 25 entries (0.0 MB) — too large to embed in the report.
-> The full list is available here: <https://www.dropbox.com/scl/fo/i50sc2awg2hkxdctpe3ty/AEEJKvb2qctxybLYLfVLl5U?rlkey=e63xgydj5omin76hx0p3vpy08&dl=0>
+> **Note**: This list contains 35 entries (0.0 MB) — too large to embed in the report.
+> The full list is available here: <https://www.dropbox.com/scl/fo/i50sc2awg2hkxdctpe3ty/AEEJKvb2qctxybLYLfVLl5U?rlkey=e63xgydj5omin76hx0p3vpy08&dl=0&preview=report-readme-structure.md>
