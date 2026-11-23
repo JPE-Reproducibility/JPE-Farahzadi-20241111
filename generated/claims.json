@@ -1,0 +1,579 @@
+{
+  "tables": [
+    {
+      "estimator": null,
+      "outcome_var": null,
+      "label": "tab:summary",
+      "title": "Summary Statistics",
+      "key_regressors": [],
+      "fixed_effects": [],
+      "sample_restriction": "Final estimation sample of British individuals (UK-born or arrived before age 18), men 25-55 and women 23-53, married (cohabitors treated as single, divorced/widowed/separated excluded), heterosexual couples only; N=1,423,555, of whom 2.7% Muslim.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Linear probability model (OLS), Eq. (1)",
+      "outcome_var": "CollegeEducation_i (indicator for own college degree)",
+      "label": "tab:sorting",
+      "title": "Selection into Marriage Migration (Education)",
+      "key_regressors": [
+        "MarriageMigration_i (indicator for having married a spouse who migrated after age 18)"
+      ],
+      "fixed_effects": [
+        "Region fixed effects (delta_r(i))",
+        "10-year birth-cohort fixed effects (gamma_c(i))"
+      ],
+      "sample_restriction": "British individuals (UK-born or arrived before 18), men 25-55 / women 23-53; estimated overall and separately by religion/sex (e.g., Muslim women).",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Linear probability model (OLS), Eq. (2)",
+      "outcome_var": "CollegeEducation_{s(i)} (indicator for spouse's college degree)",
+      "label": "tab:tradeoff",
+      "title": "Trade-offs in Marriage Migration (Spouse Education)",
+      "key_regressors": [
+        "MarriageMigration_i",
+        "CollegeEducation_i",
+        "MarriageMigration_i x CollegeEducation_i"
+      ],
+      "fixed_effects": [
+        "Region fixed effects",
+        "10-year birth-cohort fixed effects"
+      ],
+      "sample_restriction": "Same as tab:sorting (British individuals, men 25-55/women 23-53).",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Minimum Distance Estimation of structural surplus parameters (entropic/logit matching model)",
+      "outcome_var": "Deterministic joint match surplus Phi(x,y) (log-odds of matching: 2 ln[mu_xy/sqrt(mu_x0 mu_0y)])",
+      "label": "tab:preferences",
+      "title": "Estimated Endogamy Gains Across Characteristics (age, education, ethnicity, religion)",
+      "key_regressors": [
+        "Age-endogamy indicator",
+        "Education-endogamy indicator",
+        "Ethnicity-endogamy indicator",
+        "Religion (Muslim)-endogamy indicator"
+      ],
+      "fixed_effects": [],
+      "sample_restriction": "Final estimation sample (British individuals); double-difference endogamy measure D_zz' averaged over type pairs weighted by observed match distribution.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Minimum Distance Estimation of structural surplus parameters, re-estimated separately by religion",
+      "outcome_var": "Deterministic joint match surplus Phi(x,y)",
+      "label": "tab:religionest",
+      "title": "Estimated Endogamy Preferences by Religious Group (regression results corresponding to Figure fig:prefrelig)",
+      "key_regressors": [
+        "Religious/ethnic endogamy indicators, re-estimated with the religion indicator redefined for each of: Christian, Hindu, Sikh, No religion"
+      ],
+      "fixed_effects": [],
+      "sample_restriction": "One model estimated per religious group (Christians, Hindus, Sikhs, No religion) to preserve statistical power.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Logit model",
+      "outcome_var": "CollegeEducation_i",
+      "label": "tab:sorting_logit",
+      "title": "Selection into Marriage Migration, Logit Specification (robustness of tab:sorting)",
+      "key_regressors": [
+        "MarriageMigration_i"
+      ],
+      "fixed_effects": [
+        "Region fixed effects",
+        "10-year birth-cohort fixed effects"
+      ],
+      "sample_restriction": "Same as tab:sorting.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Linear probability / regression model analogous to Eq. (2), outcome redefined as spousal age gap",
+      "outcome_var": "Husband-wife age gap",
+      "label": "tab:tradeoff_age",
+      "title": "Age-Gap Trade-offs in Marriage Migration",
+      "key_regressors": [
+        "MarriageMigration_i",
+        "gender of migrant spouse"
+      ],
+      "fixed_effects": [
+        "Region fixed effects",
+        "10-year birth-cohort fixed effects"
+      ],
+      "sample_restriction": "Same Census sample; results reported separately for Muslims and non-Muslims and by which spouse migrated.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Structural counterfactual equilibrium computed via IPFP given estimated Phi and B parameters",
+      "outcome_var": "Marriage migration rate, interreligious marriage rate, interethnic marriage rate, singlehood rate",
+      "label": "tab:counterfactuals",
+      "title": "Policy Counterfactual Summary (marriage migration tax and population counterfactuals)",
+      "key_regressors": [
+        "Marriage migration tax T",
+        "Muslim population share"
+      ],
+      "fixed_effects": [],
+      "sample_restriction": "Baseline estimated preference/outside-market parameters applied to counterfactual population/tax scenarios.",
+      "data_source": "2011 Census for England and Wales (10% sample); model-based counterfactual",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Structural model predicted matching distribution (IPFP) vs. observed Census matching distribution",
+      "outcome_var": "Local marriages, marriage migration counts, and singles by ethnic/religious group",
+      "label": "tab:simmatching",
+      "title": "Model Fit: Predicted vs. Observed Matching Patterns",
+      "key_regressors": [],
+      "fixed_effects": [],
+      "sample_restriction": "Final estimation sample.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Minimum Distance Estimation under a closed-market (no marriage-migration option) specification",
+      "outcome_var": "Deterministic joint surplus Phi(x,y) (ethnic endogamy component)",
+      "label": "tab:nomig",
+      "title": "Estimated Ethnic Endogamy Surplus Excluding Cross-Border Matching (closed-market model)",
+      "key_regressors": [
+        "Ethnic-endogamy indicator"
+      ],
+      "fixed_effects": [],
+      "sample_restriction": "Model re-estimated with marriage-migration option removed, showing upward-biased endogamy surplus relative to baseline.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Minimum Distance Estimation, re-run after reclassification",
+      "outcome_var": "Marriage migration rate; decomposition into endogamy preferences vs. outside market value",
+      "label": "tab:noedu",
+      "title": "Robustness: Reclassifying UK-Degree-Holding Migrant Spouses as Local Marriages",
+      "key_regressors": [
+        "Redefined MarriageMigration indicator (excluding migrant spouses with UK degrees)"
+      ],
+      "fixed_effects": [],
+      "sample_restriction": "Marriages in which the migrant spouse holds a UK university degree reclassified as local marriages.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Minimum Distance Estimation, re-run at each age threshold",
+      "outcome_var": "Marriage-migrant share; decomposition into endogamy preferences vs. outside market value",
+      "label": "tab:sensitivity",
+      "title": "Sensitivity to Age Threshold Defining British Sponsors vs. Marriage Migrants (16/18/20)",
+      "key_regressors": [
+        "Age threshold (16, 18, 20) used to classify British vs. migrant spouse"
+      ],
+      "fixed_effects": [],
+      "sample_restriction": "Reported separately for Muslims and non-Muslims; Muslim share falls from 58.1% (threshold 16) to 39.5% (threshold 20); non-Muslim share falls from 22.1% to 20.6%.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Descriptive rates (no regression)",
+      "outcome_var": "Marriage migration rate, by baseline vs. lower-bound definition",
+      "label": "tab:mm_lowerbound_rates",
+      "title": "Marriage Migration Rates: Baseline and Lower-Bound Definitions",
+      "key_regressors": [],
+      "fixed_effects": [],
+      "sample_restriction": "Reported separately by religion (Muslim/non-Muslim) and gender; values: Non-Muslim men 0.228/0.157, Non-Muslim women 0.196/0.090, Muslim men 0.511/0.436, Muslim women 0.537/0.395 (baseline/lower bound).",
+      "data_source": "2011 Census for England and Wales (baseline); Understanding Society Wave 1 (lower-bound definition)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Minimum Distance Estimation of outside market value B under each marriage-migration definition",
+      "outcome_var": "Outside market value contribution to marriage migration",
+      "label": "tab:lowerbound",
+      "title": "Baseline and Lower-Bound Estimates of Outside Market Value",
+      "key_regressors": [],
+      "fixed_effects": [],
+      "sample_restriction": "Reported separately for women and men; values: women 0.126 (baseline)/0.099 (lower bound); men 0.118 (baseline)/0.111 (lower bound).",
+      "data_source": "2011 Census for England and Wales (baseline); Understanding Society Wave 1 (lower-bound definition)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Minimum Distance Estimation, re-run with cohabiting opposite-sex couples classified as domestic matches rather than singles",
+      "outcome_var": "Endogamy preferences; marriage migration rate; decomposition into endogamy vs. outside market value",
+      "label": "tab:nocohab",
+      "title": "Robustness: Treating Cohabiting Couples as Domestic Matches",
+      "key_regressors": [],
+      "fixed_effects": [],
+      "sample_restriction": "Marriage migration still defined using formal marriages only; religious endogamy preferences ~4% lower than baseline; overall marriage migration rate ~2 pp lower.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Minimum Distance Estimation with endogamy indicators interacted with age-cohort dummies",
+      "outcome_var": "Deterministic joint surplus Phi(x,y) (ethnic and religious endogamy components) by age cohort",
+      "label": "tab:estcohort",
+      "title": "Age-Cohort Heterogeneity in Endogamy Preferences",
+      "key_regressors": [
+        "Ethnic-endogamy x age-cohort interactions",
+        "Religious-endogamy x age-cohort interactions"
+      ],
+      "fixed_effects": [],
+      "sample_restriction": "Final estimation sample, split by age cohort.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Minimum Distance Estimation, separately for 2001 and 2011 cross-sections",
+      "outcome_var": "Deterministic joint surplus Phi(x,y) (religious and educational endogamy components)",
+      "label": "tab:estyear",
+      "title": "Comparison of Endogamy Preferences, 2001 vs. 2011",
+      "key_regressors": [
+        "Religious-endogamy indicator",
+        "Educational-endogamy indicator"
+      ],
+      "fixed_effects": [],
+      "sample_restriction": "2001: Census 2001 CAMS, marriage migration redefined as marriage between UK-born ethnic minorities and partners born abroad (no year-of-arrival data). 2011: baseline Census sample.",
+      "data_source": "Census 2001 Controlled Access Microdata Sample (CAMS); 2011 Census for England and Wales",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Minimum Distance Estimation, re-run with resident side restricted to UK-born individuals only (UK-raised treated as potential foreign spouses)",
+      "outcome_var": "Deterministic joint surplus Phi(x,y); marriage migration rate; decomposition into endogamy vs. outside market value",
+      "label": "tab:firstgen",
+      "title": "Robustness to Nativity Status Definition (UK-born vs. UK-raised as resident)",
+      "key_regressors": [],
+      "fixed_effects": [],
+      "sample_restriction": "Resident sample restricted to UK-born individuals; UK-raised (arrived before 18) individuals reclassified as potential foreign spouses.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Minimum Distance Estimation, re-run on a geographically restricted sample",
+      "outcome_var": "Deterministic joint surplus Phi(x,y); marriage migration decomposition",
+      "label": "tab:geolim",
+      "title": "Robustness to Geographic Restriction (High-Muslim-Population Regions)",
+      "key_regressors": [],
+      "fixed_effects": [],
+      "sample_restriction": "Sample restricted to East Midlands, West Midlands, East of England, Greater London, and South East of England.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Nested logit minimum-distance estimation vs. baseline (non-nested) logit minimum-distance estimation",
+      "outcome_var": "Surplus parameters Phi_MM, Phi_MN, Phi_NM, Phi_NN; outside market values B_x, B_y; dissimilarity parameters rho, delta",
+      "label": "tab:nestedparam",
+      "title": "Baseline vs. Nested-Logit Parameter Estimates",
+      "key_regressors": [
+        "Intragroup/intergroup match-type indicators (Muslim minority vs. non-Muslim majority)"
+      ],
+      "fixed_effects": [],
+      "sample_restriction": "Minority group = Muslims; majority group = non-Muslims; single group-status dimension.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    },
+    {
+      "estimator": "Nested-logit structural counterfactual (IPFP-type equilibrium under nested logit)",
+      "outcome_var": "Marriage migration rate; intermarriage rate, by gender",
+      "label": "tab:nestedcounter",
+      "title": "Nested-Logit Counterfactual: Endogamy Preferences Set to Zero",
+      "key_regressors": [
+        "Counterfactual endogamy preference = 0"
+      ],
+      "fixed_effects": [],
+      "sample_restriction": "Minority = Muslims, majority = non-Muslims; baseline marriage migration ~50% for both sexes falls to ~12% under the counterfactual, intermarriage rises above 80%.",
+      "data_source": "2011 Census for England and Wales (10% sample)",
+      "clustering": null,
+      "controls": []
+    }
+  ],
+  "data_sources": [
+    {
+      "name": "2011 Census for England and Wales, 10% household-level individual sample (ONS2011Census)",
+      "access_date": null,
+      "url_or_doi": null
+    },
+    {
+      "name": "Census 2001 Controlled Access Microdata Sample (CAMS) for England and Wales (ons2001cams)",
+      "access_date": null,
+      "url_or_doi": null
+    },
+    {
+      "name": "Understanding Society (UKHLS), Wave 1 (ukhls6614) - used for lower-bound marriage-migration validation and for fertility/religious-transmission parameters",
+      "access_date": null,
+      "url_or_doi": null
+    },
+    {
+      "name": "Citizenship Survey 2010-11 (citizenshipsurvey2011)",
+      "access_date": null,
+      "url_or_doi": null
+    },
+    {
+      "name": "Scotland 2001 Census, religion/marriage tables (scotlandreligion2001)",
+      "access_date": null,
+      "url_or_doi": null
+    },
+    {
+      "name": "Self-authored Muslim marriage biographies collected from Instagram event-affiliated accounts, 2022-2024 (n=195, author-collected)",
+      "access_date": null,
+      "url_or_doi": null
+    },
+    {
+      "name": "Country-level educational attainment distributions by gender for India, Pakistan, and Bangladesh (source unspecified in text), underlying Figure A (fig:edu_origin_combined)",
+      "access_date": null,
+      "url_or_doi": null
+    }
+  ],
+  "figures": [
+    {
+      "label": "fig:intermarriage",
+      "description": "Interreligious marriage rates, showing Muslims marry outside their religion less than other minorities."
+    },
+    {
+      "label": "fig:marriage-migration",
+      "description": "Marriage migration rates by religion and ethnicity, showing Muslims have roughly twice the marriage migration rate of non-Muslim minorities, including after conditioning on ethnicity."
+    },
+    {
+      "label": "fig:edu_origin_combined",
+      "description": "Comparison of tertiary education rates among marriage migrants to the UK versus origin-country populations (India, Pakistan, Bangladesh), by gender."
+    },
+    {
+      "label": "fig:logit_nocontrol_2x2",
+      "description": "Logit-model robustness check of the sorting-into-marriage-migration regression (tab:sorting) without controls."
+    },
+    {
+      "label": "fig:logit_control_2x2",
+      "description": "Logit-model robustness check of the sorting-into-marriage-migration regression (tab:sorting) with controls."
+    },
+    {
+      "label": "fig:determinants",
+      "description": "Decomposition of marriage migration into endogamy-preference and outside-market-value contributions, for Muslims and non-Muslims; shows observed vs. counterfactual (no-endogamy) marriage migration, intermarriage, and interethnic marriage rates."
+    },
+    {
+      "label": "fig:prefrelig",
+      "description": "Estimated religious and ethnic endogamy preferences by religious group (Christians, No religion, Muslims, Hindus, Sikhs)."
+    },
+    {
+      "label": "fig:gainsrelig",
+      "description": "Contribution of outside market value vs. endogamy preferences to marriage migration, by religious group."
+    },
+    {
+      "label": "fig:mmbyage",
+      "description": "Marriage migration rate by age, illustrating persistence of transnational ties for Muslims across generations."
+    },
+    {
+      "label": "fig:migtax",
+      "description": "Effects of a marriage migration tax on marriage migration, singlehood, inter-ethnic marriage, inter-education marriage, and interreligious marriage, for Muslims and non-Muslims."
+    },
+    {
+      "label": "fig:changes",
+      "description": "Effects of an exogenous increase in the Muslim population share on marriage migration and interreligious marriage rates."
+    },
+    {
+      "label": "fig:cohabiting",
+      "description": "Prevalence of cohabitation by age group, religion/ethnicity, motivating the cohabitation robustness check."
+    },
+    {
+      "label": "fig:practice",
+      "description": "Share of individuals actively practicing their religion (e.g., Muslims vs. Christians), from the Citizenship Survey 2010-11."
+    },
+    {
+      "label": "fig:interreligmarriage",
+      "description": "Additional appendix data on interreligious marriage patterns."
+    },
+    {
+      "label": "fig:migrantsorting_southasia",
+      "description": "Educational sorting of South Asian marriage migrants relative to origin-country populations."
+    },
+    {
+      "label": "fig:montecarlo",
+      "description": "Monte Carlo sampling distributions of the minimum-distance preference-parameter estimates across sample sizes (N=50, 500, 5000), with dashed lines at true parameter values."
+    },
+    {
+      "label": "fig:migrationgain",
+      "description": "Simulated toy-model equilibrium outcomes (intermarriage rate, minority singlehood, marriage migration) as a function of migration utility b, holding endogamy preferences at zero."
+    },
+    {
+      "label": "fig:similaritygain",
+      "description": "Simulated toy-model equilibrium outcomes as a function of endogamy utility c, holding migration utility at zero."
+    },
+    {
+      "label": "fig:pricegapend",
+      "description": "Simulated relative importance of endogamy preferences for marriage migration and intermarriage outcomes."
+    },
+    {
+      "label": "fig:pricegapmig",
+      "description": "Simulated effect of outside market value (migration utility b and outside pool size alpha) on marriage migration and intermarriage."
+    },
+    {
+      "label": "fig:phi_sensitivity",
+      "description": "Two-generation model: sensitivity of equilibrium intermarriage rate and marriage-migration rate to the strength of endogamy preferences, Generation 1 vs. Generation 2."
+    },
+    {
+      "label": "fig:B_sensitivity",
+      "description": "Two-generation model: sensitivity of equilibrium intermarriage rate and marriage-migration rate to the outside market values B_x, B_y, Generation 1 vs. Generation 2."
+    },
+    {
+      "label": "fig:phi_endogeneity",
+      "description": "Two-generation model with endogenous (group-size-dependent) endogamy preferences: intermarriage and marriage-migration rates as the Muslim population share varies, comparing exogenous vs. endogenous preference specifications."
+    },
+    {
+      "label": "fig:robust_immigrant",
+      "description": "Marriage migration patterns under the alternative nativity-status (UK-born vs. UK-raised) definition."
+    },
+    {
+      "label": "fig:muslimbyregion",
+      "description": "Muslim population share by UK region, used to assess geographic heterogeneity in market thickness."
+    },
+    {
+      "label": "fig:mmbyregion",
+      "description": "Marriage migration rate plotted against regional Muslim population share, showing no systematic relationship."
+    },
+    {
+      "label": "fig:determinantsdensity",
+      "description": "Decomposition of marriage migration into endogamy preferences and outside market value, separately for low- vs. high-Muslim-density local markets."
+    },
+    {
+      "label": "fig:mmage",
+      "description": "Marriage migration rate by age group, comparing UK-born vs. UK-raised Muslims, used in the nativity-status heterogeneity analysis."
+    }
+  ],
+  "data_processing_steps": [
+    {
+      "description": "Start from 10% Census sample (5,693,850 individual observations); drop individuals for whom a spouse cannot be identified (3,626 obs), same-sex couples (10,242 obs), and divorced/widowed/separated individuals (815,349 obs) — an overall reduction of ~14.6%.",
+      "variables_involved": [
+        "marital status",
+        "spouse identifier",
+        "same-sex couple indicator"
+      ]
+    },
+    {
+      "description": "Restrict to marriageable-age sample: women aged 23-53, men aged 25-55; drop couples where either partner falls outside the relevant age range. Resulting sample: 1,850,766 observations.",
+      "variables_involved": [
+        "age",
+        "sex"
+      ]
+    },
+    {
+      "description": "Drop individuals (and their spouses) with missing education (0.15% of obs) and individuals not reporting religion (8.5% of obs).",
+      "variables_involved": [
+        "education",
+        "religion"
+      ]
+    },
+    {
+      "description": "Restrict Muslim sample to individuals born in the UK or who arrived before age 18 ('British'/UK-raised), excluding 54% of Muslim observations whose marriage may have occurred before UK arrival.",
+      "variables_involved": [
+        "country of birth",
+        "age at arrival",
+        "religion"
+      ]
+    },
+    {
+      "description": "Final estimation sample: 1,423,555 individuals, of whom 38,938 (2.7%) are identified as Muslim.",
+      "variables_involved": [
+        "religion",
+        "sample size"
+      ]
+    },
+    {
+      "description": "Construct the 'marriage migration' proxy: a same-ethnicity marriage between an ethnic-minority British individual (UK-born or arrived before 18) and a spouse who migrated after age 18; White British excluded (marriage migration ~0.4% among them) and same-ethnicity restriction applied since ~93% of observed marriage migration among minorities is same-ethnicity.",
+      "variables_involved": [
+        "ethnicity",
+        "country of birth",
+        "age at migration",
+        "marriage status"
+      ]
+    },
+    {
+      "description": "Treat cohabiting couples as single in the baseline; exclude same-sex couples; restrict to heterosexual matches.",
+      "variables_involved": [
+        "cohabitation status",
+        "sex of partners"
+      ]
+    },
+    {
+      "description": "Aggregate ethnic categories into five groups for estimation: White British, Other White, Indian, Pakistani/Bangladeshi, and Other (Pakistani and Bangladeshi combined given similar population share, religious practice, and income).",
+      "variables_involved": [
+        "ethnicity"
+      ]
+    },
+    {
+      "description": "Define the type space for the structural model: age (3 ten-year bands: young/middle/old), education (college degree indicator), ethnicity (5 categories), and religion (Muslim indicator).",
+      "variables_involved": [
+        "age",
+        "education",
+        "ethnicity",
+        "religion"
+      ]
+    },
+    {
+      "description": "Apply a small-cell correction to zero/sparse match-count cells before minimum-distance estimation: mu_tilde = (mu_hat + delta)/(N + C*delta) * N, where delta is a small positive constant and C is the number of match/single cells.",
+      "variables_involved": [
+        "match counts (mu)",
+        "population totals (N)"
+      ]
+    },
+    {
+      "description": "Estimate joint surplus parameters via Minimum Distance Estimation (three-step: initial weighting matrix, delta-method variance estimate, re-estimation with efficient weight matrix), equivalent to least-squares regression of 2*ln[mu_xy/sqrt(mu_x0 * mu_0y)] on surplus covariates phi_xy.",
+      "variables_involved": [
+        "match distribution mu_xy",
+        "singles mu_x0, mu_0y",
+        "surplus covariates"
+      ]
+    },
+    {
+      "description": "Recover gender-specific 'outside market value' terms B_(y->x) and B_(x->y) directly from observed cross-market match counts and inside-market singles/matches using equations (eq:miggain1)/(eq:miggain2).",
+      "variables_involved": [
+        "cross-market matches mu^m",
+        "inside matches mu^in",
+        "inside singles"
+      ]
+    },
+    {
+      "description": "Solve for the equilibrium matching distribution (used for model fit and counterfactuals) via the Iterative Proportional Fitting Procedure (IPFP), alternating updates of single-women and single-men masses until convergence.",
+      "variables_involved": [
+        "single masses mu_x0, mu_0y",
+        "surplus parameters Phi_xy",
+        "outside market values B"
+      ]
+    },
+    {
+      "description": "Construct an alternative lower-bound marriage-migration measure from Understanding Society Wave 1: classify as marriage migration only when the migrant spouse's reported arrival year is strictly after the marriage year.",
+      "variables_involved": [
+        "year of arrival",
+        "year of marriage"
+      ]
+    },
+    {
+      "description": "Code a continuous 0-1 'relocation score' for 195 self-authored Muslim marriage biographies using a keyword scheme (1 = fully flexible on location, 0 = fixed-location requirement, intermediate values for partial/conditional flexibility).",
+      "variables_involved": [
+        "stated location preference text",
+        "relocation score"
+      ]
+    },
+    {
+      "description": "Estimate fertility rates by couple religious-type (f_MM=3.07, f_MN=2.78, f_NM=2.46, f_NN=2.36) and religious-transmission probabilities (p_MM=0.978, p_MN=0.976, p_NM=0.238, p_NN=0.001) from Understanding Society fertility histories and parent/child religious affiliation, used in the two-generation extension.",
+      "variables_involved": [
+        "parental religion",
+        "number of children",
+        "child religious affiliation"
+      ]
+    }
+  ]
+}

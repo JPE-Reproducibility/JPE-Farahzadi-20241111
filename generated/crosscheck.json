@@ -1,0 +1,574 @@
+{
+  "orphan_code_files": [
+    "Online Appendix/M Model Extensions/M2 Two-Generation Matching (Synthetic Data) Synthetic Data/IPUMS/Code Create Synthetic IPUMS.do",
+    "Synthetic Data/DHS India/Code Create Synthetic DHS India.do",
+    "Synthetic Data/generate_artificial_survey_inputs.py"
+  ],
+  "verdicts": [
+    {
+      "claim_label": "tab:summary",
+      "claim_type": "table",
+      "supporting_files": [
+        "Paper/2 Data & Reduced-Form Evidence/Code Table 1.do"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder 'Paper/2 Data & Reduced-Form Evidence' contains 'Code Table 1.do', the first table in that section, matching the claim's title 'Summary Statistics' which is the natural first table of a Census-based paper."
+    },
+    {
+      "claim_label": "tab:sorting",
+      "claim_type": "table",
+      "supporting_files": [
+        "Paper/2 Data & Reduced-Form Evidence/Code Table 2.do"
+      ],
+      "verdict": "Matched",
+      "rationale": "Same folder contains 'Code Table 2.do', consistent with the second table of the Data section covering the sorting/education regression."
+    },
+    {
+      "claim_label": "tab:tradeoff",
+      "claim_type": "table",
+      "supporting_files": [
+        "Paper/2 Data & Reduced-Form Evidence/Code Table 3.do"
+      ],
+      "verdict": "Matched",
+      "rationale": "'Code Table 3.do' is the third table in the same section, consistent with the spouse-education trade-off table following the sorting table."
+    },
+    {
+      "claim_label": "tab:preferences",
+      "claim_type": "table",
+      "supporting_files": [
+        "Paper/5 Results/Code Table 4.do"
+      ],
+      "verdict": "Matched",
+      "rationale": "'Paper/5 Results/Code Table 4.do' is the only numbered table in the Results section, matching the structural minimum-distance preference estimates."
+    },
+    {
+      "claim_label": "tab:religionest",
+      "claim_type": "table",
+      "supporting_files": [
+        "Preparation/Model Engine/By Religion.do"
+      ],
+      "verdict": "Plausible",
+      "rationale": "The claim says this table corresponds to fig:prefrelig (by-religion estimates). 'Preparation/Model Engine/By Religion.do' is filename-plausible for re-estimating by religious group, but no Stage A trace confirms it produces this specific table; could also be bundled into one of the Results-folder figure scripts."
+    },
+    {
+      "claim_label": "tab:sorting_logit",
+      "claim_type": "table",
+      "supporting_files": [
+        "Online Appendix/A Appendix Figures & Tables/Code Table A3.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "'Online Appendix/A Appendix Figures & Tables/Code Table A3.py' is the only Appendix-A table script of Python type, consistent with the logit robustness table (tab:sorting_logit) being computed differently from the surrounding .do table/figure scripts."
+    },
+    {
+      "claim_label": "tab:tradeoff_age",
+      "claim_type": "table",
+      "supporting_files": [
+        "Online Appendix/A Appendix Figures & Tables/Code Table A1.do",
+        "Online Appendix/A Appendix Figures & Tables/Code Table A2.do",
+        "Online Appendix/A Appendix Figures & Tables/Code Table A4.do"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Appendix A contains three otherwise-unassigned table scripts (Table A1, A2, A4.do); the age-gap trade-off table plausibly sits among these, but no direct trace ties a specific one to this claim."
+    },
+    {
+      "claim_label": "tab:counterfactuals",
+      "claim_type": "table",
+      "supporting_files": [
+        "Paper/6 Policy Analysis/Code Figure 7.py",
+        "Paper/6 Policy Analysis/Code Figure 8.py",
+        "Preparation/Model Engine/counterfactual.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder 'Paper/6 Policy Analysis' (Figure 7.py, Figure 8.py) and 'Preparation/Model Engine/counterfactual.py' directly match the policy counterfactual tax/population scenarios described."
+    },
+    {
+      "claim_label": "tab:simmatching",
+      "claim_type": "table",
+      "supporting_files": [
+        "Online Appendix/I Model Fit/Code Table A6.do",
+        "Online Appendix/I Model Fit/Table A5 observed.do",
+        "Online Appendix/I Model Fit/Code Table A5.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder 'Online Appendix/I Model Fit' (Code Table A6.do, Table A5 observed.do, Code Table A5.py) matches the claim's title 'Model Fit: Predicted vs. Observed Matching Patterns' directly."
+    },
+    {
+      "claim_label": "tab:nomig",
+      "claim_type": "table",
+      "supporting_files": [
+        "Online Appendix/A Appendix Figures & Tables/Code Table A1.do",
+        "Online Appendix/A Appendix Figures & Tables/Code Table A2.do",
+        "Online Appendix/A Appendix Figures & Tables/Code Table A4.do"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Appendix table numbering (A1–A17) is otherwise fully accounted for by other claims; this leaves one of the unassigned Appendix A table scripts (A1/A2/A4) as the likely home for the closed-market robustness table, though no direct trace confirms which."
+    },
+    {
+      "claim_label": "tab:noedu",
+      "claim_type": "table",
+      "supporting_files": [
+        "Online Appendix/J Measurement Error and Robustness of Definition/J3 Measurement Error/Code Table A9.do",
+        "Online Appendix/J Measurement Error and Robustness of Definition/J3 Measurement Error/Code Table A10.py",
+        "Online Appendix/J Measurement Error and Robustness of Definition/J3 Measurement Error/analysis.do",
+        "Online Appendix/J Measurement Error and Robustness of Definition/J3 Measurement Error/cleaning.do"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Folder 'Online Appendix/J Measurement Error and Robustness of Definition/J3 Measurement Error' (Code Table A9.do, Code Table A10.py, analysis.do, cleaning.do) matches the measurement-error/reclassification theme, but it is ambiguous which specific file produces this table versus tab:sensitivity."
+    },
+    {
+      "claim_label": "tab:sensitivity",
+      "claim_type": "table",
+      "supporting_files": [
+        "Online Appendix/J Measurement Error and Robustness of Definition/J3 Measurement Error/Code Table A9.do",
+        "Online Appendix/J Measurement Error and Robustness of Definition/J3 Measurement Error/Code Table A10.py"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Same J3 Measurement Error folder plausibly houses the age-threshold sensitivity table alongside tab:noedu, but no direct trace distinguishes the two files."
+    },
+    {
+      "claim_label": "tab:mm_lowerbound_rates",
+      "claim_type": "table",
+      "supporting_files": [
+        "Online Appendix/J Measurement Error and Robustness of Definition/J2 Alternative Definitions of Marriage Migration/Code Table A7.do",
+        "Online Appendix/J Measurement Error and Robustness of Definition/J2 Alternative Definitions of Marriage Migration/table_a7_migration.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder name 'J2 Alternative Definitions of Marriage Migration' directly matches the baseline-vs-lower-bound rate comparison, with both a .do and .py script present."
+    },
+    {
+      "claim_label": "tab:lowerbound",
+      "claim_type": "table",
+      "supporting_files": [
+        "Online Appendix/J Measurement Error and Robustness of Definition/J2 Alternative Definitions of Marriage Migration/Code Table A8.do",
+        "Online Appendix/J Measurement Error and Robustness of Definition/J2 Alternative Definitions of Marriage Migration/table_a8_migration.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Same J2 folder's second table script (A8) directly matches the baseline/lower-bound outside-market-value estimates, paired with tab:mm_lowerbound_rates's A7."
+    },
+    {
+      "claim_label": "tab:nocohab",
+      "claim_type": "table",
+      "supporting_files": [
+        "Online Appendix/K Robustness to Cohabitation/Code Table A11.do",
+        "Online Appendix/K Robustness to Cohabitation/table_a11_migration.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder name 'K Robustness to Cohabitation' directly matches the claim title and content, with both .do and .py implementations present."
+    },
+    {
+      "claim_label": "tab:estcohort",
+      "claim_type": "table",
+      "supporting_files": [
+        "Online Appendix/L Heterogeneity/L1 Heterogeneity by Cohort and Period/Code Table A12.do",
+        "Online Appendix/L Heterogeneity/L1 Heterogeneity by Cohort and Period/Code Table A13.do"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder 'L1 Heterogeneity by Cohort and Period' directly matches the age-cohort heterogeneity claim."
+    },
+    {
+      "claim_label": "tab:estyear",
+      "claim_type": "table",
+      "supporting_files": [
+        "Preparation/Data Cleaning/census_comparison_cleaning.py",
+        "Synthetic Data/Census/generate_synthetic_census_2001.py",
+        "Online Appendix/L Heterogeneity/L1 Heterogeneity by Cohort and Period/Code Table A12.do",
+        "Online Appendix/L Heterogeneity/L1 Heterogeneity by Cohort and Period/Code Table A13.do"
+      ],
+      "verdict": "Plausible",
+      "rationale": "The 2001-vs-2011 comparison requires the 2001 CAMS cleaning pipeline; 'census_comparison_cleaning.py' and 'generate_synthetic_census_2001.py' are filename-plausible data prerequisites, and the L1 folder's two table scripts are candidates for the actual estimation, but no direct trace confirms the link."
+    },
+    {
+      "claim_label": "tab:firstgen",
+      "claim_type": "table",
+      "supporting_files": [
+        "Online Appendix/L Heterogeneity/L2 Heterogeneity by Nativity Status/Code Table A14.do"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder name 'L2 Heterogeneity by Nativity Status' directly matches the UK-born vs UK-raised robustness claim."
+    },
+    {
+      "claim_label": "tab:geolim",
+      "claim_type": "table",
+      "supporting_files": [
+        "Online Appendix/L Heterogeneity/L3 Heterogeneity by Local Market Population/Code Table A15.do"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder name 'L3 Heterogeneity by Local Market Population' directly matches the geographic restriction claim."
+    },
+    {
+      "claim_label": "tab:nestedparam",
+      "claim_type": "table",
+      "supporting_files": [
+        "Online Appendix/M Model Extensions/M1 Nested Matching/Code Table A16.py",
+        "Online Appendix/M Model Extensions/M1 Nested Matching/estimation_nested.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder name 'M1 Nested Matching' and file 'Code Table A16.py' directly match the nested-logit parameter estimates, with estimation_nested.py as a supporting module."
+    },
+    {
+      "claim_label": "tab:nestedcounter",
+      "claim_type": "table",
+      "supporting_files": [
+        "Online Appendix/M Model Extensions/M1 Nested Matching/Code Table A17.py",
+        "Online Appendix/M Model Extensions/M1 Nested Matching/counterfactual_baseline.py",
+        "Online Appendix/M Model Extensions/M1 Nested Matching/counterfactual_nested.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Same M1 folder's 'Code Table A17.py' plus counterfactual_baseline.py/counterfactual_nested.py directly match the nested-logit counterfactual claim."
+    },
+    {
+      "claim_label": "fig:intermarriage",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Paper/2 Data & Reduced-Form Evidence/Code Figure 1.do"
+      ],
+      "verdict": "Plausible",
+      "rationale": "'Paper/2 Data & Reduced-Form Evidence/Code Figure 1.do' is the only figure script in the data section; it plausibly produces multiple panels including this one, but file-listing evidence cannot confirm which panel."
+    },
+    {
+      "claim_label": "fig:marriage-migration",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Paper/2 Data & Reduced-Form Evidence/Code Figure 1.do"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Same single Figure 1.do script in the data section plausibly bundles this panel alongside fig:intermarriage; no direct trace distinguishes panels."
+    },
+    {
+      "claim_label": "fig:edu_origin_combined",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/A Appendix Figures & Tables/Code Figure A1.do",
+        "Online Appendix/A Appendix Figures & Tables/Code Figure A2.do",
+        "Online Appendix/A Appendix Figures & Tables/Code Figure A3.do",
+        "Online Appendix/A Appendix Figures & Tables/Code Figure A4.do",
+        "Online Appendix/A Appendix Figures & Tables/Code Figure A5.do",
+        "Online Appendix/A Appendix Figures & Tables/Code Figure A6.do",
+        "Online Appendix/A Appendix Figures & Tables/Code Figure A7.do"
+      ],
+      "verdict": "Plausible",
+      "rationale": "One of the seven Appendix A figure scripts (A1-A7) is plausibly this figure comparing migrant vs. origin-country education, but no file is explicitly named for it."
+    },
+    {
+      "claim_label": "fig:logit_nocontrol_2x2",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/A Appendix Figures & Tables/Code Table A3.py"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Likely produced alongside tab:sorting_logit's Table A3.py or bundled in one of the Appendix A figure scripts, but no file is explicitly named for this 2x2 logit figure."
+    },
+    {
+      "claim_label": "fig:logit_control_2x2",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/A Appendix Figures & Tables/Code Table A3.py"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Same reasoning as fig:logit_nocontrol_2x2; plausibly generated by the same logit-related script, no direct trace available."
+    },
+    {
+      "claim_label": "fig:determinants",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Paper/5 Results/Code Figure 4.py",
+        "Paper/5 Results/Code Figure 5.do",
+        "Paper/5 Results/Code Figure 6.py"
+      ],
+      "verdict": "Plausible",
+      "rationale": "'Paper/5 Results' folder contains three figure scripts (Figure 4.py, Figure 5.do, Figure 6.py) for four figure claims in this section; one of them plausibly produces this decomposition figure, but file listing alone cannot identify which."
+    },
+    {
+      "claim_label": "fig:prefrelig",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Preparation/Model Engine/By Religion.do",
+        "Paper/5 Results/Code Figure 4.py",
+        "Paper/5 Results/Code Figure 5.do",
+        "Paper/5 Results/Code Figure 6.py"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Plausibly tied to 'By Religion.do' (filename matches 'by religion' estimation) and/or one of the Results-section figure scripts; no direct trace confirms either."
+    },
+    {
+      "claim_label": "fig:gainsrelig",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Paper/5 Results/Code Figure 4.py",
+        "Paper/5 Results/Code Figure 5.do",
+        "Paper/5 Results/Code Figure 6.py"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Plausibly one of the three Results-section figure scripts, alongside fig:determinants/fig:prefrelig/fig:mmbyage; cannot distinguish which from file listing alone."
+    },
+    {
+      "claim_label": "fig:mmbyage",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Paper/5 Results/Code Figure 4.py",
+        "Paper/5 Results/Code Figure 5.do",
+        "Paper/5 Results/Code Figure 6.py"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Same Results-section figure-script ambiguity as the other three figures in this section."
+    },
+    {
+      "claim_label": "fig:migtax",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Paper/6 Policy Analysis/Code Figure 7.py",
+        "Paper/6 Policy Analysis/Code Figure 8.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder 'Paper/6 Policy Analysis' with Figure 7.py/Figure 8.py directly matches the migration-tax policy counterfactual figures."
+    },
+    {
+      "claim_label": "fig:changes",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Paper/6 Policy Analysis/Code Figure 7.py",
+        "Paper/6 Policy Analysis/Code Figure 8.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Same Policy Analysis folder directly matches the population-share counterfactual figure, paired with fig:migtax."
+    },
+    {
+      "claim_label": "fig:cohabiting",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/A Appendix Figures & Tables/Code Figure A1.do",
+        "Online Appendix/A Appendix Figures & Tables/Code Figure A7.do",
+        "Online Appendix/K Robustness to Cohabitation/Code Table A11.do"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Plausibly one of the unassigned Appendix A figure scripts (A1-A7), motivating the cohabitation robustness check in folder K; no direct trace available."
+    },
+    {
+      "claim_label": "fig:practice",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Synthetic Data/Citizenship Survey/Code Create Synthetic Citizenship Survey.do",
+        "Online Appendix/A Appendix Figures & Tables/Code Figure A1.do"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Depends on Citizenship Survey data (Synthetic Data/Citizenship Survey folder) and plausibly one of the Appendix A figure scripts, but no figure-generating file is explicitly named for this claim."
+    },
+    {
+      "claim_label": "fig:interreligmarriage",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/A Appendix Figures & Tables/Code Figure A1.do",
+        "Online Appendix/A Appendix Figures & Tables/Code Figure A7.do"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Plausibly one of the unassigned Appendix A figure scripts; described as 'additional appendix data' consistent with that folder, no direct trace."
+    },
+    {
+      "claim_label": "fig:migrantsorting_southasia",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/A Appendix Figures & Tables/Code Figure A2.do",
+        "Online Appendix/A Appendix Figures & Tables/Code Figure A3.do"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Plausibly one of the Appendix A figure scripts covering South Asian migrant education sorting; no file is explicitly named for this comparison."
+    },
+    {
+      "claim_label": "fig:montecarlo",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/H Monte-Carlo Simulations/Code Figure A13.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder 'H Monte-Carlo Simulations' with 'Code Figure A13.py' directly matches the claim."
+    },
+    {
+      "claim_label": "fig:migrationgain",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/F Toy Model/Code Figures A9-A12.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder 'F Toy Model' file 'Code Figures A9-A12.py' is named to cover exactly four toy-model figures (A9-A12), matching this and three sibling figure claims."
+    },
+    {
+      "claim_label": "fig:similaritygain",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/F Toy Model/Code Figures A9-A12.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Same 'Code Figures A9-A12.py' script, bundling this toy-model figure with the three siblings."
+    },
+    {
+      "claim_label": "fig:pricegapend",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/F Toy Model/Code Figures A9-A12.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Same 'Code Figures A9-A12.py' script."
+    },
+    {
+      "claim_label": "fig:pricegapmig",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/F Toy Model/Code Figures A9-A12.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Same 'Code Figures A9-A12.py' script, completing the four toy-model figures A9-A12."
+    },
+    {
+      "claim_label": "fig:phi_sensitivity",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/M Model Extensions/M2 Two-Generation Matching/Code Figure A18.py",
+        "Online Appendix/M Model Extensions/M2 Two-Generation Matching/params.json"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder 'M2 Two-Generation Matching' with 'Code Figure A18.py'; data_dependencies.md confirms this file directly reads params.json, the two-generation model's parameter file."
+    },
+    {
+      "claim_label": "fig:B_sensitivity",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/M Model Extensions/M2 Two-Generation Matching/Code Figure A19.py",
+        "Online Appendix/M Model Extensions/M2 Two-Generation Matching/two_generation_model.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Same M2 folder's 'Code Figure A19.py' and 'two_generation_model.py' match the outside-market-value sensitivity figure."
+    },
+    {
+      "claim_label": "fig:phi_endogeneity",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/M Model Extensions/M3 Two-Generation Matching with Endogeneous Preferences/Code Figure A20.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder 'M3 Two-Generation Matching with Endogenous Preferences' and file 'Code Figure A20.py' directly match this claim's title and content."
+    },
+    {
+      "claim_label": "fig:robust_immigrant",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/L Heterogeneity/L2 Heterogeneity by Nativity Status/Code Figure A14.do"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder 'L2 Heterogeneity by Nativity Status' with 'Code Figure A14.do' directly matches the nativity-status robustness figure."
+    },
+    {
+      "claim_label": "fig:muslimbyregion",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/L Heterogeneity/L3 Heterogeneity by Local Market Population/Code Figure A16.do",
+        "Online Appendix/L Heterogeneity/L3 Heterogeneity by Local Market Population/Code Figure A17.do"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Folder 'L3 Heterogeneity by Local Market Population' contains two figure scripts (A16, A17) for three regional figure claims in this section; plausible but not individually traceable."
+    },
+    {
+      "claim_label": "fig:mmbyregion",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/L Heterogeneity/L3 Heterogeneity by Local Market Population/Code Figure A16.do",
+        "Online Appendix/L Heterogeneity/L3 Heterogeneity by Local Market Population/figure_a17_migration.py"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Same L3 folder figure scripts plausibly cover this regional marriage-migration figure, ambiguous which specific file."
+    },
+    {
+      "claim_label": "fig:determinantsdensity",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/L Heterogeneity/L3 Heterogeneity by Local Market Population/Code Figure A17.do",
+        "Online Appendix/L Heterogeneity/L3 Heterogeneity by Local Market Population/figure_a17_migration.py"
+      ],
+      "verdict": "Plausible",
+      "rationale": "Same L3 folder plausibly covers the low- vs high-density decomposition figure, ambiguous which specific file."
+    },
+    {
+      "claim_label": "fig:mmage",
+      "claim_type": "figure",
+      "supporting_files": [
+        "Online Appendix/L Heterogeneity/L2 Heterogeneity by Nativity Status/Code Figure A14.do"
+      ],
+      "verdict": "Matched",
+      "rationale": "Folder 'L2 Heterogeneity by Nativity Status' directly matches this UK-born vs UK-raised age-group figure, paired with fig:robust_immigrant via the same folder's Figure A14.do."
+    },
+    {
+      "claim_label": "2011 Census for England and Wales (10% sample)",
+      "claim_type": "data_source",
+      "supporting_files": [
+        "Data cleaning code/cleaning_census.do",
+        "Data cleaning code/census_cleaning.py",
+        "Preparation/Data Cleaning/census_cleaning.py",
+        "Synthetic Data/Census/generate_synthetic_census.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Multiple code files are explicitly named for Census cleaning: 'cleaning_census.do', 'census_cleaning.py' (appearing in two folders), and 'generate_synthetic_census.py'. Note the duplicate census_cleaning.py in both 'Data cleaning code/' and 'Preparation/Data Cleaning/' is worth a human follow-up to confirm which is authoritative."
+    },
+    {
+      "claim_label": "Census 2001 Controlled Access Microdata Sample (CAMS) for England and Wales (ons2001cams)",
+      "claim_type": "data_source",
+      "supporting_files": [
+        "Preparation/Data Cleaning/census_comparison_cleaning.py",
+        "Synthetic Data/Census/generate_synthetic_census_2001.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Code files explicitly named for the 2001 comparison: 'census_comparison_cleaning.py' and 'generate_synthetic_census_2001.py'."
+    },
+    {
+      "claim_label": "Understanding Society (UKHLS), Wave 1 (ukhls6614)",
+      "claim_type": "data_source",
+      "supporting_files": [
+        "Synthetic Data/Understanding Society/cleaning.do",
+        "Synthetic Data/Understanding Society/analysis.do",
+        "Synthetic Data/Understanding Society/generate_synthetic_understanding_society.py"
+      ],
+      "verdict": "Matched",
+      "rationale": "Dedicated folder 'Synthetic Data/Understanding Society/' with cleaning.do, analysis.do, and generate_synthetic_understanding_society.py directly matches this data source; note analysis.do/cleaning.do names are duplicated in the J3 Measurement Error folder, worth a human check on whether these are the same pipeline reused or distinct code."
+    },
+    {
+      "claim_label": "Citizenship Survey 2010-11 (citizenshipsurvey2011)",
+      "claim_type": "data_source",
+      "supporting_files": [
+        "Synthetic Data/Citizenship Survey/Code Create Synthetic Citizenship Survey.do"
+      ],
+      "verdict": "Matched",
+      "rationale": "Dedicated folder and file 'Synthetic Data/Citizenship Survey/Code Create Synthetic Citizenship Survey.do' directly matches this data source."
+    },
+    {
+      "claim_label": "Scotland 2001 Census, religion/marriage tables (scotlandreligion2001)",
+      "claim_type": "data_source",
+      "supporting_files": [],
+      "verdict": "Missing",
+      "rationale": "No file in code_manifest.txt or data_dependencies.md contains any reference to Scotland or a Scottish census; no plausible code file exists for this data source."
+    },
+    {
+      "claim_label": "Self-authored Muslim marriage biographies collected from Instagram event-affiliated accounts, 2022-2024 (n=195, author-collected)",
+      "claim_type": "data_source",
+      "supporting_files": [],
+      "verdict": "Missing",
+      "rationale": "No scraper, text-coding, or keyword-scheme script exists in the manifest. 'generate_artificial_survey_inputs.py' sits at the top level of 'Synthetic Data/', as a sibling to the per-source subfolders (Census, Understanding Society, Citizenship Survey, DHS India, IPUMS), suggesting it is a shared synthetic-data helper rather than a biography-coding script; no table or figure claim consumes a 'relocation score' variable either."
+    },
+    {
+      "claim_label": "Country-level educational attainment distributions by gender for India, Pakistan, and Bangladesh (source unspecified in text), underlying Figure A (fig:edu_origin_combined)",
+      "claim_type": "data_source",
+      "supporting_files": [
+        "Synthetic Data/DHS India/Code Create Synthetic DHS India.do",
+        "Synthetic Data/IPUMS/Code Create Synthetic IPUMS.do"
+      ],
+      "verdict": "Plausible",
+      "rationale": "The paper itself leaves this source unspecified. 'Synthetic Data/DHS India/Code Create Synthetic DHS India.do' and 'Synthetic Data/IPUMS/Code Create Synthetic IPUMS.do' are the only candidate files touching cross-country survey/census data, but neither is explicitly named for this claim, so the connection is weak and flagged for human review rather than treated as a confirmed match."
+    }
+  ],
+  "coverage": {
+    "overall": 75.9,
+    "by_claim_type": {
+      "figure": 71.4,
+      "table": 85.7,
+      "data_source": 64.3
+    },
+    "n_claims": 56
+  }
+}
